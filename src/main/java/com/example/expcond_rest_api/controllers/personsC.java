@@ -33,6 +33,7 @@ public class personsC {
     */
     @GetMapping({"{id}"})
     public ResponseEntity<persons> getPerson(@PathVariable(name = "id") String id){
+
         Optional<persons> pe=personsService.getPerson(Long.parseLong(id));
         return new ResponseEntity(pe, HttpStatus.OK);
     }
