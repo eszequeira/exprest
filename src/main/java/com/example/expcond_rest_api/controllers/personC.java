@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class personC {
     @Autowired
     private  IPersonService personService;
-    Pageable pageable = PageRequest.of(1,5);
+    Pageable pageable = PageRequest.of(0,5);
 
     @GetMapping("/persons")
     public Page<person> getPersons(){
