@@ -3,8 +3,8 @@ package com.example.expcond_rest_api.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.expcond_rest_api.entities.persons;
+import com.example.expcond_rest_api.entities.person;
 
 @Repository
-public interface personsR extends JpaRepository<persons,Long> {
+public interface personR extends JpaRepository<person,Long> {
 }

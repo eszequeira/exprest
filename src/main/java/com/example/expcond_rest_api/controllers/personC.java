@@ -1,7 +1,7 @@
 package com.example.expcond_rest_api.controllers;
 
-import com.example.expcond_rest_api.entities.persons;
-import com.example.expcond_rest_api.services.personsService;
+import com.example.expcond_rest_api.entities.person;
+import com.example.expcond_rest_api.services.personService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,9 +13,9 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/persons")
-public class personsC {
+public class personC {
     @Autowired
-    personsService personsService;
+    personService personService;
 /*
     public ArrayList<persons> getPersons(){
         return personsService.getPersons();
@@ -32,8 +32,8 @@ public class personsC {
     }
     */
     @GetMapping({"{id}"})
-    public ResponseEntity<persons> getPerson(@PathVariable(name = "id") String id){
-        Optional<persons> pe=personsService.getPerson(Long.parseLong(id));
+    public ResponseEntity<person> getPerson(@PathVariable(name = "id") String id){
+        Optional<person> pe=personService.getPerson(Long.parseLong(id));
         return new ResponseEntity(pe, HttpStatus.OK);
     }
 }
