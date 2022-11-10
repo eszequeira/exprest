@@ -1,25 +1,39 @@
 package com.example.expcond_rest_api.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
 import com.example.expcond_rest_api.entities.person;
 import com.example.expcond_rest_api.repositories.personR;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 @Service
-public class personService {
+public class personService implements IPersonService {
     @Autowired
-    personR per1;
-
-
+    private personR per1;
+    //Pageable pageable = PageRequest.of(0,5);
+/*
     public ArrayList<person> getPersons(){
         return (ArrayList<person>) per1.findAll();
     }
 
     public Optional<person> getPerson(Long id){
         return per1.findById(id);
+    }
+*/
+    @Override
+    @Transactional(readOnly = true)
+    public Page<person> finPersonList(Pageable pageable) {
+        return per1.findAll(pageable);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public person findPerson(Long id) {
+        return per1.findById(id).orElse(null) ;
     }
 }
