@@ -28,8 +28,8 @@ public class PersonController {
     }
 
     @GetMapping({"{id}"})
-    public Person getPerson(@PathVariable(name = "id") String id) {
-        return personService.findPerson(Long.parseLong(id));
+    public Person getPerson(@PathVariable(name = "id") Long id) {
+        return personService.findPerson(id);
     }
 
 }
