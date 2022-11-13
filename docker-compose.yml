@@ -1,0 +1,29 @@
+version: "3.0"
+
+services:
+
+  unifi-env-sensors-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: unifi-env-sensors-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - unifi-env-sensors-db
+    restart: on-failure
+    env_file:
+      - .env
+
+  unifi-env-sensors-rabbitmq:
+    image: rabbitmq:3.9.21-alpine
+    container_name: unifi-env-sensors-rabbitmq
+    env_file:
+      - .env
+    environment:
+      - RABBITMQ_DEFAULT_VHOST=${RABBITMQ_VHOST}
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USERNAME}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASSWORD}
+
+volumes:
+  grafana-storage:
