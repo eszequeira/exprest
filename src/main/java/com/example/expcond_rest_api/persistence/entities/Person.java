@@ -1,4 +1,4 @@
-package com.example.expcond_rest_api.entities;
+package com.example.expcond_rest_api.persistence.entities;
 import lombok.*;
 
 import javax.persistence.*;

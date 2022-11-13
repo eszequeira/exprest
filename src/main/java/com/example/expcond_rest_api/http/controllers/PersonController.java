@@ -1,6 +1,6 @@
 package com.example.expcond_rest_api.http.controllers;
 
-import com.example.expcond_rest_api.entities.Person;
+import com.example.expcond_rest_api.persistence.entities.Person;
 import com.example.expcond_rest_api.services.PersonService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
