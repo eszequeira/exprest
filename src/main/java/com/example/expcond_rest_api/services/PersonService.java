@@ -19,7 +19,7 @@ public class PersonService implements IPersonService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<Person> finPersonList(Pageable pageable) {
+    public Page<Person> findPersonList(Pageable pageable) {
         return personRepository.findAll(pageable);
     }
 

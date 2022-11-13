@@ -6,7 +6,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface IPersonService {
 
-    Page<Person> finPersonList(Pageable pageable);
+    Page<Person> findPersonList(Pageable pageable);
 
     Person findPerson(Long id);
 

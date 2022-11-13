@@ -24,7 +24,7 @@ public class PersonController {
 
     @GetMapping
     public Page<Person> getPersons() {
-        return personService.finPersonList(pageable);
+        return personService.findPersonList(pageable);
     }
 
     @GetMapping({"{id}"})
