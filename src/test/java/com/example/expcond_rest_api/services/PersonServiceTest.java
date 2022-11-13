@@ -34,8 +34,9 @@ public class PersonServiceTest {
     @Test
     public void givenMeasurementService_whenTemperatureEvent_thenIsCorrectlyProcessed() {
         var person = personService.findPerson(1L);
+        var personName = person.getNOMBRE();
 
-        assertThat(person.getNOMBRE()).isEqualTo("John");
+        assertThat(personName).isEqualTo("John");
     }
 
     @Test
