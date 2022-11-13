@@ -1,6 +1,6 @@
 package com.example.expcond_rest_api.controllers;
 
-import com.example.expcond_rest_api.entities.person;
+import com.example.expcond_rest_api.entities.Person;
 import com.example.expcond_rest_api.services.abstraction.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -16,12 +16,12 @@ public class personC {
     Pageable pageable = PageRequest.of(0,5);
 
     @GetMapping("/persons")
-    public Page<person> getPersons(){
+    public Page<Person> getPersons(){
         return personService.finPersonList(pageable);
     }
 
     @GetMapping({"{id}"})
-    public person getPerson(@PathVariable(name = "id") String id){
+    public Person getPerson(@PathVariable(name = "id") String id){
         return personService.findPerson(Long.parseLong(id));
     }
 }

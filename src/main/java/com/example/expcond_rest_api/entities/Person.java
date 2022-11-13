@@ -4,7 +4,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "PERSONAS")
-public class person {
+public class Person {
     @Id
     @Column(name = "ID_PERSONA")
     private Long IDPERSONA;
@@ -24,7 +24,7 @@ public class person {
     private String PASAPORTE;
     private String TRAMITA;
 
-    public person(Long IDPERSONA, String NOMBRE, String IDENTID, String NOMBRE2, String APELL1, String APELL2, String PADRE, String MADRE, String SEXO, String TIPART, Integer PROV, Integer MUNIC, Date FECHANAC, String PASAPORTE, String TRAMITA) {
+    public Person(Long IDPERSONA, String NOMBRE, String IDENTID, String NOMBRE2, String APELL1, String APELL2, String PADRE, String MADRE, String SEXO, String TIPART, Integer PROV, Integer MUNIC, Date FECHANAC, String PASAPORTE, String TRAMITA) {
         this.IDPERSONA = IDPERSONA;
         this.NOMBRE = NOMBRE;
         this.IDENTID = IDENTID;
@@ -42,7 +42,7 @@ public class person {
         this.TRAMITA = TRAMITA;
     }
 
-    public person() {
+    public Person() {
     }
 
     public Long getIDPERSONA() {

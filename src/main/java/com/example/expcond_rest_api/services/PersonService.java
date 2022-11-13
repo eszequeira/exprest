@@ -1,6 +1,6 @@
 package com.example.expcond_rest_api.services;
 
-import com.example.expcond_rest_api.entities.person;
+import com.example.expcond_rest_api.entities.Person;
 import com.example.expcond_rest_api.repositories.PersonRepository;
 import com.example.expcond_rest_api.services.abstraction.IPersonService;
 import org.springframework.data.domain.Page;
@@ -19,13 +19,13 @@ public class PersonService implements IPersonService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<person> finPersonList(Pageable pageable) {
+    public Page<Person> finPersonList(Pageable pageable) {
         return personRepository.findAll(pageable);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public person findPerson(Long id) {
+    public Person findPerson(Long id) {
         return personRepository.findById(id).orElse(null);
     }
 
