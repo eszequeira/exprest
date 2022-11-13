@@ -8,20 +8,22 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
-
 @RestController
-public class personC {
-    @Autowired
-    private  IPersonService personService;
-    Pageable pageable = PageRequest.of(0,5);
+@RequestMapping("/v1/persons")
+public class PersonController {
 
-    @GetMapping("/persons")
-    public Page<Person> getPersons(){
+    @Autowired
+    private IPersonService personService;
+    Pageable pageable = PageRequest.of(0, 5);
+
+    @GetMapping
+    public Page<Person> getPersons() {
         return personService.finPersonList(pageable);
     }
 
     @GetMapping({"{id}"})
-    public Person getPerson(@PathVariable(name = "id") String id){
+    public Person getPerson(@PathVariable(name = "id") String id) {
         return personService.findPerson(Long.parseLong(id));
     }
+
 }
