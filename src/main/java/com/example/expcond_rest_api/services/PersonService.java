@@ -1,14 +1,13 @@
 package com.example.expcond_rest_api.services;
 
+import com.example.expcond_rest_api.entities.person;
+import com.example.expcond_rest_api.repositories.personR;
 import com.example.expcond_rest_api.services.abstraction.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import com.example.expcond_rest_api.entities.person;
-import com.example.expcond_rest_api.repositories.personR;
 import org.springframework.transaction.annotation.Transactional;
-
 
 @Service
 public class PersonService implements IPersonService {
