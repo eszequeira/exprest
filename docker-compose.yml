@@ -2,22 +2,20 @@ version: "3.0"
 
 services:
 
-  unifi-env-sensors-api:
+  expcond-api:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: unifi-env-sensors-api
+    container_name: expcond-api
     ports:
       - "8080:8080"
-    depends_on:
-      - unifi-env-sensors-db
     restart: on-failure
     env_file:
       - .env
 
-  unifi-env-sensors-rabbitmq:
+  expcond-rabbitmq:
     image: rabbitmq:3.9.21-alpine
-    container_name: unifi-env-sensors-rabbitmq
+    container_name: expcond-rabbitmq
     env_file:
       - .env
     environment:
