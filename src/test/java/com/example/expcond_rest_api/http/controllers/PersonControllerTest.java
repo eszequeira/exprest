@@ -1,4 +1,4 @@
-package com.example.expcond_rest_api.controllers;
+package com.example.expcond_rest_api.http.controllers;
 
 import com.example.expcond_rest_api.services.PersonService;
 import org.junit.jupiter.api.BeforeAll;

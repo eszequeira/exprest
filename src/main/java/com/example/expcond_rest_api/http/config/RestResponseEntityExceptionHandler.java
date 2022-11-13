@@ -1,4 +1,4 @@
-package com.example.expcond_rest_api.config;
+package com.example.expcond_rest_api.http.config;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
