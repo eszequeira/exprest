@@ -1,4 +1,4 @@
-package com.example.expcond_rest_api.services;
+package com.example.expcond_rest_api.services.abstraction;
 
 import com.example.expcond_rest_api.entities.person;
 import org.springframework.data.domain.Page;
