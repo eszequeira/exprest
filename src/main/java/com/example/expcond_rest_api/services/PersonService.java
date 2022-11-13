@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
-public class personService implements IPersonService {
+public class PersonService implements IPersonService {
     @Autowired
     private personR per1;
     //Pageable pageable = PageRequest.of(0,5);
