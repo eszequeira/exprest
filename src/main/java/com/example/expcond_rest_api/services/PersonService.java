@@ -26,7 +26,7 @@ public class PersonService implements IPersonService {
     @Override
     @Transactional(readOnly = true)
     public Person findPerson(Long id) {
-        return personRepository.findById(id).orElse(null);
+        return personRepository.findById(id).orElseGet(Person::new);
     }
 
 }
