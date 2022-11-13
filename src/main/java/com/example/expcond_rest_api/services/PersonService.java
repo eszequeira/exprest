@@ -14,11 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 public class PersonService implements IPersonService {
     @Autowired
     private personR per1;
-    //Pageable pageable = PageRequest.of(0,5);
-/*
-    public ArrayList<person> getPersons(){
-        return (ArrayList<person>) per1.findAll();
-    }
 
     public Optional<person> getPerson(Long id){
         return per1.findById(id);
