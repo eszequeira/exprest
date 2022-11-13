@@ -7,8 +7,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.Pageable;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
 
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
@@ -38,9 +40,10 @@ public class PersonServiceTest {
 
     @Test
     public void givenMeasurementService_whenObjectPresentEvent_thenIsCorrectlyProcessed() {
-        var allItems = personRepository.findAll();
+        var pageable = mock(Pageable.class);
+        var allItems = personService.findPersonList(pageable);
 
-        assertThat(allItems.size()).isEqualTo(2);
+        assertThat(allItems.getTotalElements()).isEqualTo(2);
     }
 
 }
