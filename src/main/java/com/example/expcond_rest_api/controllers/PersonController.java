@@ -11,18 +11,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/v1/persons")
+@RequestMapping("/v1/persons/")
 public class PersonController {
 
     private final PersonService personService;
-
     Pageable pageable = PageRequest.of(0, 5);
 
     public PersonController(PersonService personService) {
         this.personService = personService;
     }
 
-    @GetMapping
+    @GetMapping(path = "/")
     public Page<Person> getPersons() {
         return personService.findPersonList(pageable);
     }
