@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.example.expcond_rest_api.entities.person;
 
 @Repository
-public interface personR extends JpaRepository<person,Long> {
+public interface PersonRepository extends JpaRepository<person,Long> {
 }

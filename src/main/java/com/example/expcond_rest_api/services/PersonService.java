@@ -1,9 +1,8 @@
 package com.example.expcond_rest_api.services;
 
 import com.example.expcond_rest_api.entities.person;
-import com.example.expcond_rest_api.repositories.personR;
+import com.example.expcond_rest_api.repositories.PersonRepository;
 import com.example.expcond_rest_api.services.abstraction.IPersonService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -11,22 +10,23 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class PersonService implements IPersonService {
-    @Autowired
-    private personR per1;
 
-    public Optional<person> getPerson(Long id){
-        return per1.findById(id);
+    private final PersonRepository personRepository;
+
+    public PersonService(PersonRepository personRepository) {
+        this.personRepository = personRepository;
     }
-*/
+
     @Override
     @Transactional(readOnly = true)
     public Page<person> finPersonList(Pageable pageable) {
-        return per1.findAll(pageable);
+        return personRepository.findAll(pageable);
     }
 
     @Override
     @Transactional(readOnly = true)
     public person findPerson(Long id) {
-        return per1.findById(id).orElse(null) ;
+        return personRepository.findById(id).orElse(null);
     }
+
 }
