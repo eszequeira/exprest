@@ -1,5 +1,6 @@
 package com.example.expcond_rest_api.http.controllers;
 
+import com.example.expcond_rest_api.http.controllers.v1.PersonControllerV1;
 import com.example.expcond_rest_api.services.PersonService;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -15,9 +16,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(PersonController.class)
+@WebMvcTest(PersonControllerV1.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class PersonControllerTest {
+public class PersonControllerV1Test {
 
     private static final String ENDPOINT_SLUG = "/v1/persons/";
     private MockMvc mockMvc;

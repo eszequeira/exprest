@@ -1,4 +1,4 @@
-package com.example.expcond_rest_api.http.controllers;
+package com.example.expcond_rest_api.http.controllers.v1;
 
 import com.example.expcond_rest_api.persistence.entities.Person;
 import com.example.expcond_rest_api.services.PersonService;
@@ -11,22 +11,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/v1/persons/")
-public class PersonController {
+@RequestMapping("/v1")
+public class PersonControllerV1 {
 
     private final PersonService personService;
     Pageable pageable = PageRequest.of(0, 5);
 
-    public PersonController(PersonService personService) {
+    public PersonControllerV1(PersonService personService) {
         this.personService = personService;
     }
 
-    @GetMapping(path = "/")
+    @GetMapping(path = "/persons", produces = "application/json")
     public Page<Person> getPersons() {
         return personService.findPersonList(pageable);
     }
 
-    @GetMapping({"{id}"})
+    @GetMapping(path = "/persons/{id}", produces = "application/json")
     public Person getPerson(@PathVariable(name = "id") Long id) {
         return personService.findPerson(id);
     }
