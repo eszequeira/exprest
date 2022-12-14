@@ -2,7 +2,6 @@ package com.example.expcond_rest_api.persistence.entities;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Getter
@@ -10,34 +9,22 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Table(name = "PERSONAS")
+@Table(name = "person",uniqueConstraints = {@UniqueConstraint(columnNames = {"dni"})})
 public class Person {
 
     @Id
-    @Column(name = "ID_PERSONA")
-    private Long IDPERSONA;
-
-    private String NOMBRE;
-    private String IDENTID;
-    private String NOMBRE2;
-    private String APELL1;
-    private String APELL2;
-    private String PADRE;
-    private String MADRE;
-    private String SEXO;
-    private String TIPART;
-    private Integer PROV;
-    private Integer MUNIC;
-
-    @Column(name = "FECHA_NAC")
-    private Date FECHANAC;
-
-    private String PASAPORTE;
-    private String TRAMITA;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String dni;
+    @Column(name = "first_name")
+    private String firstName;
+    @Column(name = "last_name")
+    private String lastName;
+    private String sex;
 
     @Override
     public String toString() {
-        return "persons [idPersona=" + IDPERSONA + ", firstName=" + NOMBRE + ", lastName=" + APELL1 + "]";
+        return "persons [idPerson=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", dni=" + dni + "]";
     }
 
 }
